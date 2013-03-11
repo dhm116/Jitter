@@ -141,7 +141,7 @@ compileScript= (source, target, options) ->
       writeJS js, targetPath
     else
       return if js.js is currentJS
-      js.js = "#{js.js}\n/*\n//@ sourceMappingURL=#{mapPath source, target}\n*/\n"
+      js.js = "#{js.js}\n/*\n//@ sourceMappingURL=#{path.basename mapPath source, target}\n*/\n"
       writeJS js.js, targetPath
       writeJS js.v3SourceMap, mapPath source, target
     if currentJS?
